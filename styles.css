@@ -1,42 +1,103 @@
-/* General comments about the stylesheet */
+/* Basic setup and font import */
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+/* Root variables with fallbacks for main colors and spacings */
 :root {
-    /* CSS Variables */
-    --main-bg-color: #f4f4f4; /* Fallback color */
-    --button-color: color-mix(in srgb, red 90%, blue 10%);
+    --main-bg-color: #f4f4f4; /* Light grey background */
+    --text-color: #333; /* Dark grey text for better readability */
+    --accent-color: rgb(255, 165, 0); /* Bright orange for accents */
+    --font-stack: 'Lato', sans-serif;
 }
 
 body {
-    background-color: var(--main-bg-color, white); /* Fallback is white if --main-bg-color is not supported */
-    color: hsl(210, 10%, 20%);
-    font-family: 'Roboto', sans-serif; /* Using a Google Font */
+    background-color: var(--main-bg-color);
+    color: var(--text-color);
+    font-family: var(--font-stack);
+    margin: 0;
+    padding: 20px;
 }
 
-h1 {
-    color: rgba(255, 165, 0, 0.8); /* Orange with alpha transparency */
+header, footer {
+    background-color: #ffffff;
+    padding: 10px 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-p {
-    margin: 20px;
-    border: 1px solid #ddd; /* Short border syntax */
-    padding: 15px; /* Short padding syntax */
-    border-radius: 5px;
-    text-align: justify;
+h1, h2 {
+    color: var(--accent-color);
 }
 
-.container {
-    display: flex; /* Using Flexbox */
-    justify-content: space-around;
+a {
+    color: #1a0dab; /* Default blue for links */
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    text-decoration: underline;
+}
+
+/* Specific section styling */
+section {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Styling for attendance list */
+.details-list li {
+    list-style-type: none;
+}
+
+.details-list li[present="true"] {
+    color: green;
+}
+
+.details-list li[present="false"] {
+    color: red;
+}
+
+/* Styling form elements with specific types and using flexbox for layout */
+form.questionnaire {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input[type="text"], input[type="date"], select, textarea {
+    width: 100%; /* Responsive width */
+    padding: 8px;
+    margin-top: 5px;
+}
+
+/* Grid layout for the contact information in footer */
+footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px 20px;
     align-items: center;
+    color: #666;
 }
 
-.grid {
-    display: grid; /* Using Grid */
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-}
-
+/* Media query for responsiveness */
 @media (max-width: 768px) {
-    .container {
+    body {
+        padding: 10px;
+    }
+
+    header, footer {
+        text-align: center;
+    }
+
+    form.questionnaire {
         flex-direction: column;
+    }
+
+    footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 10px;
     }
 }
