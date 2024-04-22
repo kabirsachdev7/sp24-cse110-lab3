@@ -1,0 +1,42 @@
+/* General comments about the stylesheet */
+:root {
+    /* CSS Variables */
+    --main-bg-color: #f4f4f4; /* Fallback color */
+    --button-color: color-mix(in srgb, red 90%, blue 10%);
+}
+
+body {
+    background-color: var(--main-bg-color, white); /* Fallback is white if --main-bg-color is not supported */
+    color: hsl(210, 10%, 20%);
+    font-family: 'Roboto', sans-serif; /* Using a Google Font */
+}
+
+h1 {
+    color: rgba(255, 165, 0, 0.8); /* Orange with alpha transparency */
+}
+
+p {
+    margin: 20px;
+    border: 1px solid #ddd; /* Short border syntax */
+    padding: 15px; /* Short padding syntax */
+    border-radius: 5px;
+    text-align: justify;
+}
+
+.container {
+    display: flex; /* Using Flexbox */
+    justify-content: space-around;
+    align-items: center;
+}
+
+.grid {
+    display: grid; /* Using Grid */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+}
