@@ -159,3 +159,20 @@ h2 + p {
 input[type="email"], input[type="tel"] {
     border-color: var(--primary-color);
 }
+
+/* Customize form inputs and labels */
+input[type="text"], input[type="date"], select, textarea {
+    border-radius: 5px;
+    border: 2px solid var(--secondary-color);
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, input[type="date"]:focus, select:focus, textarea:focus {
+    border-color: var(--accent-color);
+}
+
+label {
+    display: block;
+    margin-bottom: .5rem;
+    color: var(--primary-color);
+}
