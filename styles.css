@@ -142,3 +142,9 @@ section + section { /* Adjacent sibling combinator */
 section:has(h2) {
     padding-bottom: 20px;
 }
+
+section:has(img) {
+    background-color: rgba(230, 230, 250, 0.5); /* Light blue background for sections with images */
+    padding: 20px;
+    border: 1px solid #ccc;
+}
