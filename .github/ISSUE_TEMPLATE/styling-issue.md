@@ -3,7 +3,7 @@ name: Styling Issue Template
 about: Suggest new/changes in styling
 title: "[STYLING]"
 labels: good first issue, styling
-assignees: kabirsachdev7
+assignees: 
 
 ---
 
