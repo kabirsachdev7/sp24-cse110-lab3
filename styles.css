@@ -356,3 +356,20 @@ nav {
     display: block;
   }
 }
+button {
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+button:hover {
+    background-color: darken(var(--accent-color, 10%));
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 69, 0, 0.5); /* Creates a glow effect */
+}
+
+button:active {
+    background-color: darken(var(--accent-color, 20%)); /* Even darker on click */
+    transform: translateY(2px); /* Slight move down */
+}
