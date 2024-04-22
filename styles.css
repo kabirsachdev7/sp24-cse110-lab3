@@ -148,3 +148,14 @@ section:has(img) {
     padding: 20px;
     border: 1px solid #ccc;
 }
+
+/* Style paragraphs directly following h2 for emphasis */
+h2 + p {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* Target specific input types for enhanced styling */
+input[type="email"], input[type="tel"] {
+    border-color: var(--primary-color);
+}
