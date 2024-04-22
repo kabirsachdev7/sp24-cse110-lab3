@@ -373,3 +373,20 @@ button:active {
     background-color: darken(var(--accent-color, 20%)); /* Even darker on click */
     transform: translateY(2px); /* Slight move down */
 }
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block; /* Show hamburger menu icon */
+    }
+
+    nav ul {
+        display: none; /* Hide links by default */
+        width: 100%; /* Full width */
+        background-color: var(--secondary-color);
+        text-align: center;
+    }
+
+    nav ul.show {
+        display: block; /* Show on toggle */
+    }
+}
