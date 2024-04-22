@@ -15,6 +15,36 @@
     --border-color: var(--primary-color);
 }
 
+/* Ensuring high contrast for text against light backgrounds */
+body {
+    color: #333; /* Already good, but ensuring it's noted for contrast */
+    background-color: var(--secondary-color); /* Light background */
+}
+
+/* Enhancing link visibility and interactivity */
+a, button {
+    color: var(--accent-color); /* Bright color for links */
+    background-color: transparent; /* No background unless hovered or focused */
+    text-decoration: underline; /* Makes it clear that it's clickable */
+}
+
+a:hover, a:focus {
+    background-color: rgba(255, 255, 255, 0.5); /* Light background on hover for better visibility */
+    color: var(--primary-color); /* Contrast change */
+}
+
+/* Accessibility improvements for form inputs */
+input[type="text"], input[type="email"], select, textarea {
+    border: 1px solid #ccc; /* Ensuring border visibility */
+    color: #333; /* High contrast text color */
+    background-color: white; /* High contrast background */
+}
+
+input[type="text"]:focus, input[type="email"]:focus, select:focus, textarea:focus {
+    border-color: var(--accent-color); /* Highlight focus clearly */
+    box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.5); /* Adding outer glow for better focus visibility */
+}
+
 body {
     font-family: var(--font-stack);
     font-size: var(--font-size-base);
