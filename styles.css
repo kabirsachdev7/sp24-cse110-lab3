@@ -3,10 +3,12 @@
     --primary-color: hsl(210, 50%, 60%);
     --secondary-color: rgb(230, 230, 250);
     --accent-color: #ff4500;
+    --accent-hover-color: #e63e00; /* 10% darker */
+    --accent-active-color: #cc3700; /* 20% darker */
     --fallback-color: color(colorspace srgb-linear 0.4 0.2 0.8 / 0.5);
     --font-stack: 'Roboto', sans-serif;
-    --font-size-base: 16px;  /* Base font size */
-    --font-size-heading: 1.5rem;  /* Base size for headings */
+    --font-size-base: 16px;
+    --font-size-heading: 1.5rem;
     --spacing-small: 8px;
     --spacing-medium: 16px;
     --spacing-large: 32px;
@@ -15,6 +17,13 @@
     --border-color: var(--primary-color);
 }
 
+button:hover {
+    background-color: var(--accent-hover-color); /* Use the darker accent color for hover */
+}
+
+button:active {
+    background-color: var(--accent-active-color); /* Use the even darker accent color for active */
+}
 /* Ensuring high contrast for text against light backgrounds */
 body {
     color: #333; /* Already good, but ensuring it's noted for contrast */
