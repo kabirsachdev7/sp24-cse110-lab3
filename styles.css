@@ -4,7 +4,6 @@
     --accent-color: #ff4500;
     --accent-hover-color: #e63e00; /* 10% darker */
     --accent-active-color: #cc3700; /* 20% darker */
-    --fallback-color: color(colorspace srgb-linear 0.4 0.2 0.8 / 0.5);
     --font-stack: 'Roboto', sans-serif;
     --font-size-base: 16px;
     --font-size-heading: 1.5rem;
@@ -16,155 +15,82 @@
     --border-color: var(--primary-color);
 }
 
-button:hover {
-    background-color: var(--accent-hover-color); /* Use the predefined darker accent color for hover */
-}
-
-button:active {
-    background-color: var(--accent-active-color); /* Use the predefined even darker accent color for active */
-}
-
-/* Ensuring high contrast for text against light backgrounds */
-body {
-    color: #333; /* Already good, but ensuring it's noted for contrast */
-    background-color: var(--secondary-color); /* Light background */
-}
-
-/* Enhancing link visibility and interactivity */
-a, button {
-    color: var(--accent-color); /* Bright color for links */
-    background-color: transparent; /* No background unless hovered or focused */
-    text-decoration: underline; /* Makes it clear that it's clickable */
-}
-
-a:hover, a:focus {
-    background-color: rgba(255, 255, 255, 0.5); /* Light background on hover for better visibility */
-    color: var(--primary-color); /* Contrast change */
-}
-
-/* Accessibility improvements for form inputs */
-input[type="text"], input[type="email"], select, textarea {
-    border: 1px solid #ccc; /* Ensuring border visibility */
-    color: #333; /* High contrast text color */
-    background-color: white; /* High contrast background */
-}
-
-input[type="text"]:focus, input[type="email"]:focus, select:focus, textarea:focus {
-    border-color: var(--accent-color); /* Highlight focus clearly */
-    box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.5); /* Adding outer glow for better focus visibility */
-}
-
-body {
+body, html {
+    margin: 0;
+    padding: 0;
     font-family: var(--font-stack);
     font-size: var(--font-size-base);
     background-color: var(--secondary-color);
-    color: #333;  /* High contrast text color */
+    color: #333;
 }
 
-h1, h2, h3 {
-    font-size: var(--font-size-heading);
+header, footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    text-align: center;
 }
-
-button, input, textarea {
-    border-radius: var(--border-radius);
-    border: 2px var(--border-style) var(--border-color);
-}
-
-body {
-    font-family: var(--font-stack);
-    line-height: 1.6;  /* Increase line height for better readability */
-}
-
-h1, h2, h3 {
-    line-height: 1.4;  /* Slightly tighter line height for headings */
-}
-
-@media (max-width: 768px) {
-    body {
-        font-size: 16px;  /* Larger base font size for small screens */
-    }
-
-    h1 {
-        font-size: 1.75rem;  /* Larger heading for better visibility */
-    }
-}
-header,
-footer {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 1rem;
-  text-align: center;
-}
-
-/* Responsive typography */
-h1,
-h2,
-h3 {
-  margin: 0.5em 0;
-}
-
-/* Navigation links */
-nav a {
-  color: white;
-  text-decoration: none;
-  padding: 0.5em;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-/* Main section styling using CSS Grid */
-main {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(300px, 1fr)
-  ); /* Responsive grid setup */
-  gap: 1rem; /* Space between grid items */
-  padding: 1rem;
-  align-items: start; /* Aligns items at the start of each cell */
-}
-
-@media (max-width: 768px) {
-  main {
-    grid-template-columns: 1fr; /* Stacks grid items vertically on smaller screens */
-  }
-}
-section {
-  background-color: white;
-  border: 2px solid var(--accent-color);
-  border-radius: 10px;
-  padding: 1rem;
-}
-
-/* Apply styles to lists and list items */
-ul,
-ol {
-  padding-left: 20px;
-}
-
-li {
-  line-height: 1.5;
-}
-
-/* Media attributes */
-img,
-audio,
-video {
-  width: 100%;
-  max-width: 500px;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Form styling with flexbox */
 
 nav {
     display: flex;
-    justify-content: space-between; /* Distributes space between navigation items */
-    align-items: center; /* Vertically aligns items in the middle */
+    justify-content: space-between;
+    align-items: center;
     padding: 1rem;
+}
+
+nav a, button {
+    color: var(--accent-color);
+    background-color: transparent;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+button {
+    padding: 0.5em;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--accent-hover-color);
+}
+
+button:active {
+    background-color: var(--accent-active-color);
+    transform: translateY(2px);
+}
+
+nav a:hover, button:focus {
+    text-decoration: underline;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 69, 0, 0.5);
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+section {
+    background-color: white;
+    border: 2px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+}
+
+input[type="text"], input[type="email"], input[type="date"], select, textarea {
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    background-color: white;
+    color: #333;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.5);
 }
 
 @media (max-width: 768px) {
@@ -172,295 +98,22 @@ nav {
         flex-direction: column;
         align-items: flex-start;
     }
-}
-
-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: var(--primary-color);
-    color: white;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 1rem;
-}
-section {
-    display: flex;
-    flex-direction: row;
-    align-items: center; /* Ensure vertical alignment */
-    justify-content: space-between; /* Distribute space between items */
-    padding: 1rem;
-    background-color: white;
-    border: 2px solid var(--accent-color);
-    border-radius: 10px;
-}
-
-@media (max-width: 768px) {
-    section {
-        flex-direction: column; /* Stack items vertically on smaller screens */
+    body, h1 {
+        font-size: calc(var(--font-size-base) + 2px); /* Slightly larger text on small screens */
+    }
+    main {
+        grid-template-columns: 1fr; /* Stacks grid items vertically on smaller screens */
     }
 }
 
-
-@media (min-width: 768px) {
-    form {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+@media (min-width: 769px) {
+    main {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on medium screens */
     }
 }
 
-input[type="text"],
-input[type="date"],
-textarea {
-  padding: 0.5em;
-  border: 1px solid #ccc;
-}
-
-button {
-  padding: 0.5em;
-  background-color: var(--accent-color);
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: darken(var(--accent-color, 10%));
-}
-
-/* Pseudo-classes and combinators */
-a:hover,
-button:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(255, 69, 0, 0.5);
-}
-
-/* Media Queries for responsiveness */
-@media (max-width: 768px) {
-  header,
-  footer {
-    text-align: center;
-  }
-
-  nav {
-    font-size: 14px;
-  }
-}
-
-/* Advanced selectors */
-*[href] {
-  /* Universal attribute selector */
-  border-bottom: 1px dotted var(--primary-color);
-}
-
-section > h2 {
-  /* Child combinator */
-  color: var(--accent-color);
-}
-
-section + section {
-  /* Adjacent sibling combinator */
-  margin-top: 1rem;
-}
-
-/* CSS Grid and Flexbox within sections */
-#newBusiness {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-@media (min-width: 500px) {
-  #newBusiness {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-}
-
-/* Use of CSS :has() pseudo-class (if supported) */
-section:has(h2) {
-  padding-bottom: 20px;
-}
-
-section:has(img) {
-  background-color: rgba(
-    230,
-    230,
-    250,
-    0.5
-  ); /* Light blue background for sections with images */
-  padding: 20px;
-  border: 1px solid #ccc;
-}
-
-/* Style paragraphs directly following h2 for emphasis */
-h2 + p {
-  color: var(--accent-color);
-  font-weight: bold;
-}
-
-/* Target specific input types for enhanced styling */
-input[type="email"],
-input[type="tel"] {
-  border-color: var(--primary-color);
-}
-
-/* Customize form inputs and labels */
-input[type="text"],
-input[type="date"],
-select,
-textarea {
-  border-radius: 5px;
-  border: 2px solid var(--secondary-color);
-  transition: border-color 0.3s;
-}
-
-input[type="text"]:focus,
-input[type="date"]:focus,
-select:focus,
-textarea:focus {
-  border-color: var(--accent-color);
-}
-
-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: var(--primary-color);
-}
-
-/* Base styles that apply to all screen sizes */
-body,
-html {
-  margin: 0;
-  padding: 0;
-}
-
-/* Styles for small screens (phones) */
-@media only screen and (max-width: 600px) {
-  header,
-  footer {
-    padding: 0.5rem;
-  }
-
-  nav a {
-    font-size: 12px;
-  }
-
-  main {
-    grid-template-columns: 1fr; /* Stack grid items on small screens */
-  }
-}
-
-/* Styles for medium screens (tablets) */
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
-  header,
-  footer {
-    padding: 0.8rem;
-  }
-
-  nav a {
-    font-size: 14px;
-  }
-
-  main {
-    grid-template-columns: repeat(
-      2,
-      1fr
-    ); /* Use two columns on medium screens */
-  }
-}
-
-/* Styles for large screens (desktops) */
-@media only screen and (min-width: 1025px) {
-  header,
-  footer {
-    padding: 1rem;
-  }
-
-  nav a {
-    font-size: 16px;
-  }
-
-  main {
-    grid-template-columns: repeat(
-      3,
-      1fr
-    ); /* Use three columns on large screens */
-  }
-}
-
-/* Example for a simple responsive navigation toggle */
-nav {
-  position: relative;
-}
-
-.nav-toggle {
-  display: none;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-}
-
-@media only screen and (max-width: 600px) {
-  .nav-toggle {
-    display: block;
-  }
-
-  nav ul {
-    display: none;
-    position: absolute;
-    background-color: white;
-    width: 100%;
-    left: 0;
-    top: 30px;
-  }
-
-  nav a {
-    display: block;
-    padding: 10px;
-  }
-
-  nav ul.show {
-    display: block;
-  }
-}
-button {
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
-}
-
-button:hover {
-    background-color: darken(var(--accent-color, 10%));
-}
-
-button:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(255, 69, 0, 0.5); /* Creates a glow effect */
-}
-
-button:active {
-    background-color: darken(var(--accent-color, 20%)); /* Even darker on click */
-    transform: translateY(2px); /* Slight move down */
-}
-
-@media (max-width: 768px) {
-    .nav-toggle {
-        display: block; /* Show hamburger menu icon */
-    }
-
-    nav ul {
-        display: none; /* Hide links by default */
-        width: 100%; /* Full width */
-        background-color: var(--secondary-color);
-        text-align: center;
-    }
-
-    nav ul.show {
-        display: block; /* Show on toggle */
+@media (min-width: 1025px) {
+    main {
+        grid-template-columns: repeat(3, 1fr); /* Three columns on large screens */
     }
 }
